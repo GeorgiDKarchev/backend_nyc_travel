@@ -14,7 +14,7 @@ const toursSchema = new mongoose.Schema({
         type:String,
         maxLength:1000,
     },
-    prise: {
+    price: {
         type: Number,
         required:true,
     },
