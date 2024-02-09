@@ -6,6 +6,9 @@ import cors from 'cors' //for connection to the frontend
 
 import membersRoutes from './routes/members.js';
 
+//import tour routes||||||
+import toursRoutes from './routes/tours.js';
+
 
 
 const app = express();
@@ -16,6 +19,9 @@ app.use(cors());//when conecting to frontend
 app.use(express.json());
 
 app.use('/api/members', membersRoutes);
+
+//||||||||
+app.use('/api/tours', toursRoutes);
 
 //main route
 app.get('/', (req, res)=>{
