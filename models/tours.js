@@ -18,6 +18,9 @@ const toursSchema = new mongoose.Schema({
         type: Number,
         required:true,
     },
+    members_notes: {
+        type:String,
+    }
 
 });
 

@@ -3,7 +3,7 @@ import Tour from "../models/tours.js";
 
 const router = new Router();
 
-//GET tours
+//GET tours // Show all the tours
 
 router.get("/", async (req,res)=>{
  try{
@@ -14,7 +14,7 @@ router.get("/", async (req,res)=>{
 }
 });
 
-//Post - creating a tour
+//Post - creating a  new tour
  
  router.post('/', async (req, res) => {
     console.log(req. body);
@@ -26,7 +26,7 @@ router.get("/", async (req,res)=>{
     };
 });
 
-//Get/:id /////find tour by ID
+//Get/:id / find individual  tour by ID
 
 router.get('/:id', async (req, res) => {
     const tour = await Tour.findById(req.params.id);
@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // PUT /:id
-// Update Tours data 
+// Update  individual Tours data 
 router.put('/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-//DELETE /:id   (delete Tour)
+//DELETE /:id   /delete  single Tour/
 
 router.delete('/:id', async (req, res)=>{
     const {id} = req.params;
