@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import Member from '../models/members.js';
+import cors from 'cors';
+import bcrypt from 'bcrypt';
 
 
 const router = new Router();
@@ -155,5 +157,53 @@ router.put('/:id/update-password', async (req, res) => {
     res.json({msg: "member is logged in!", member});
   
   });
+
+
+/////////////////////////// new router///////////////////
+
+
+
+router.get('/LoginSignup', cors(), (req, res) =>{
+
+})
+
+router.post('/', async(req, res)=>{
+  const [email, password] =req.body
+
+  try{
+    const check = await membersSchema.findOne({email:email})
+    if(check){
+      res.json('exist')
+    }   else{
+      res.json('not exist')
+    } 
+  }
+  catch(e){
+      res.json('Does not exist')
+
+  }
+})
+
+router.post('/Signup', async(req, res)=>{
+  const [email, password] =req.body
   
-  export default router;
+  const data={
+    email: email,
+    password: password
+  }
+
+  try{
+    const check = await membersSchema.findOne({email:email})
+    if(check){
+      res.json('exist')
+    }   else{
+      res.json('not exist')
+      await membersSchema.insertMany([data]) 
+    } 
+  }
+  catch(e){
+      res.json('Does not exist')
+
+  }
+})
+export default router;
