@@ -1,5 +1,6 @@
 import {Router} from "express";
 import Tour from "../models/tours.js";
+import bcrypt from 'bcrypt';
 
 const router = new Router();
 
